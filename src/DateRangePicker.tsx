@@ -347,18 +347,6 @@ const DateRangePicker: React.FC<DateRangePickerProps> = function DateRangePicker
 
     return (
       <div className={`${baseClassName}__wrapper`}>
-        {calendarIcon !== null && !disableCalendar && (
-          <button
-            aria-label={calendarAriaLabel}
-            className={`${baseClassName}__calendar-button ${baseClassName}__button`}
-            disabled={disabled}
-            onClick={toggleCalendar}
-            onFocus={stopPropagation}
-            type="button"
-          >
-            {typeof calendarIcon === 'function' ? React.createElement(calendarIcon) : calendarIcon}
-          </button>
-        )}
         <DateInput
           {...commonProps}
           // eslint-disable-next-line jsx-a11y/no-autofocus
@@ -388,7 +376,18 @@ const DateRangePicker: React.FC<DateRangePickerProps> = function DateRangePicker
             {typeof clearIcon === 'function' ? React.createElement(clearIcon) : clearIcon}
           </button>
         )}
-        
+        {calendarIcon !== null && !disableCalendar && (
+          <button
+            aria-label={calendarAriaLabel}
+            className={`${baseClassName}__calendar-button ${baseClassName}__button`}
+            disabled={disabled}
+            onClick={toggleCalendar}
+            onFocus={stopPropagation}
+            type="button"
+          >
+            {typeof calendarIcon === 'function' ? React.createElement(calendarIcon) : calendarIcon}
+          </button>
+        )}
       </div>
     );
   }
@@ -499,6 +498,7 @@ DateRangePicker.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   openCalendarOnFocus: PropTypes.bool,
+  portalContainer: isBrowser ? PropTypes.instanceOf(HTMLElement) : undefined,
   rangeDivider: PropTypes.node,
   required: PropTypes.bool,
   showLeadingZeros: PropTypes.bool,
@@ -506,9 +506,5 @@ DateRangePicker.propTypes = {
   yearAriaLabel: PropTypes.string,
   yearPlaceholder: PropTypes.string,
 };
-
-if (isBrowser) {
-  DateRangePicker.propTypes.portalContainer = PropTypes.instanceOf(HTMLElement);
-}
 
 export default DateRangePicker;

@@ -2,12 +2,10 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    environment: 'jsdom',
-    server: {
-      deps: {
-        inline: ['vitest-canvas-mock'],
-      },
+    deps: {
+      inline: ['vitest-canvas-mock'],
     },
+    environment: 'jsdom',
     setupFiles: 'vitest.setup.ts',
     watch: false,
   },
