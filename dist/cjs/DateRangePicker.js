@@ -213,13 +213,13 @@ var DateRangePicker = function DateRangePicker(props) {
         };
         var commonProps = __assign(__assign(__assign({}, ariaLabelProps), placeholderProps), { className: "".concat(baseClassName, "__inputGroup"), disabled: disabled, format: format, isCalendarOpen: isOpen, locale: locale, maxDate: maxDate, maxDetail: maxDetail, minDate: minDate, onInvalidChange: onInvalidChange, required: required, showLeadingZeros: showLeadingZeros });
         return (react_1.default.createElement("div", { className: "".concat(baseClassName, "__wrapper") },
+            calendarIcon !== null && !disableCalendar && (react_1.default.createElement("button", { "aria-label": calendarAriaLabel, className: "".concat(baseClassName, "__calendar-button ").concat(baseClassName, "__button"), disabled: disabled, onClick: toggleCalendar, onFocus: stopPropagation, type: "button" }, typeof calendarIcon === 'function' ? react_1.default.createElement(calendarIcon) : calendarIcon)),
             react_1.default.createElement(DateInput_1.default, __assign({}, commonProps, { 
                 // eslint-disable-next-line jsx-a11y/no-autofocus
                 autoFocus: autoFocus, name: "".concat(name, "_from"), onChange: onChangeFrom, returnValue: "start", value: valueFrom })),
             react_1.default.createElement("span", { className: "".concat(baseClassName, "__range-divider") }, rangeDivider),
             react_1.default.createElement(DateInput_1.default, __assign({}, commonProps, { name: "".concat(name, "_to"), onChange: onChangeTo, returnValue: "end", value: valueTo })),
-            clearIcon !== null && (react_1.default.createElement("button", { "aria-label": clearAriaLabel, className: "".concat(baseClassName, "__clear-button ").concat(baseClassName, "__button"), disabled: disabled, onClick: clear, onFocus: stopPropagation, type: "button" }, typeof clearIcon === 'function' ? react_1.default.createElement(clearIcon) : clearIcon)),
-            calendarIcon !== null && !disableCalendar && (react_1.default.createElement("button", { "aria-label": calendarAriaLabel, className: "".concat(baseClassName, "__calendar-button ").concat(baseClassName, "__button"), disabled: disabled, onClick: toggleCalendar, onFocus: stopPropagation, type: "button" }, typeof calendarIcon === 'function' ? react_1.default.createElement(calendarIcon) : calendarIcon))));
+            clearIcon !== null && (react_1.default.createElement("button", { "aria-label": clearAriaLabel, className: "".concat(baseClassName, "__clear-button ").concat(baseClassName, "__button"), disabled: disabled, onClick: clear, onFocus: stopPropagation, type: "button" }, typeof clearIcon === 'function' ? react_1.default.createElement(clearIcon) : clearIcon))));
     }
     function renderCalendar() {
         if (isOpen === null || disableCalendar) {
